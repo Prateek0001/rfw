@@ -1,0 +1,12 @@
+import core.widgets;
+import core.material;
+
+widget PatientList = ListView.builder(
+  children: [
+    Text(text: "Your Patient list is"),
+    ...for patient in data.server.patients:
+      Patient(patient: patient)
+  ],
+);
+
+widget Patient = Text(text: args.patient.name, softWrap: false, overflow: "fade");
