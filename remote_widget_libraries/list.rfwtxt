@@ -1,7 +1,7 @@
 import core.widgets;
 import core.material;
 
-widget PatientList = ListView.builder(
+widget PatientList = ListView(
   children: [
     Text(text: "Your Patient list is"),
     ...for patient in data.server.patients:
@@ -9,4 +9,7 @@ widget PatientList = ListView.builder(
   ],
 );
 
-widget Patient = Text(text: args.patient.name, softWrap: false, overflow: "fade");
+widget Patient = ListTile(
+  title: Text(text: args.patient.name),
+  onTap: event 'patientSelect' { name: args.patient.name},
+);
